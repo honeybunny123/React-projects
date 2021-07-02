@@ -1,0 +1,73 @@
+main {
+  height: 100vh;
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn {
+  padding: 10px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #4e72f3;
+  color: #fff;
+  border-radius: 6px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.btn.disabled {
+  background-color: grey;
+  pointer-events: none;
+}
+
+.toast {
+  background-color: #fff;
+  position: absolute;
+  left: 50%;
+  top: 30px;
+  transform: translateX(-50%);
+  border-radius: 6px;
+  padding: 10px 15px;
+  font-size: 14px;
+}
+
+.toast svg {
+  margin-right: 10px;
+}
+
+.toast.info {
+  color: #4e72f3;
+}
+
+.toast.info svg{
+  fill: #4e72f3;
+}
+
+.toast.warning {
+  color: #e49736;
+}
+
+.toast.warning svg{
+  fill: #e49736;
+}
+
+.toast.error svg{
+  fill: #d61236;
+}
+
+.toast.error {
+  color: #d61236;
+}
+
+.toast svg, .toast span {
+  vertical-align: middle;
+}
+
+.hide {
+  display: none;
+}
+
+
