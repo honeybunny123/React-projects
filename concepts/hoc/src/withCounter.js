@@ -1,30 +1,20 @@
-import React from "react";
+import React,{useState} from "react";
 
-const withCounter = (WrappedComponent, incrementNum) => {
-  class WithCounter extends React.Component {
-    constructor(props) {
-      super(props);
-      this.state = {
-        count: 0
-      }
-      this.incrementCount = this.incrementCount.bind(this);
-    }
+ const withCounter = (WrappedComponent, incrementNum) => {
 
-    incrementCount = () => {
-      this.setState(prevState => {
-        return { count: prevState.count + incrementNum }
-      })
-    }
-
-    render() {
-      return (
-        <WrappedComponent
-          count={this.state.count}
-          incrementCount={this.incrementCount}
-        />
-      );
-    }
+  const WithCounter = ()=> {
+    
+    const [count, incrementCount] = useState(0);
+    
+    return (
+      <WrappedComponent
+        count={count}
+        incrementCount={()=> incrementCount(count + incrementNum)}
+      />
+    );
+  
   }
+
   return WithCounter;
 };
 
