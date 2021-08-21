@@ -12,10 +12,29 @@ const Tooltip= ()=> {
     handleShow(true);
     updateContent(e.target.dataset.tooltip);
     let targetInfo = e.target.getBoundingClientRect();
+    const tooltip = document.querySelector('.tooltip');
     if(x !== Math.round(targetInfo.left) || y !== Math.round(targetInfo.top)){
-      updateX(Math.round(targetInfo.left + targetInfo.width));
-      updateY(Math.round(targetInfo.top));
+      let left = targetInfo.left + (targetInfo.width / 2) - (tooltip.clientWidth / 2);
+      let top = targetInfo.top - tooltip.clientHeight;
+
+      if(left < 50) {
+        left = targetInfo.left + targetInfo.width;
+        top = targetInfo.top;
+      }
+
+      if (left > (window.innerWidth - 200)) {
+        left = targetInfo.left - tooltip.clientWidth;
+        top = targetInfo.top;
+      }
+
+      if(top < 50) {
+        top = targetInfo.top + targetInfo.height;
+      }
+
+      updateX(Math.round(left));
+      updateY(Math.round(top));
     }
+
     
   }
 
@@ -24,21 +43,21 @@ const Tooltip= ()=> {
   }
 
   useEffect(()=>{
-    const tooltips = document.querySelectorAll('.add-tooltip');
-    if(tooltips) {
-      tooltips.forEach((tooltip)=> {
-        tooltip.addEventListener('mouseenter', showTooltip);
-        tooltip.addEventListener('mouseleave', hideTooltip);
-        return tooltip;
+    const tooltipHosts = document.querySelectorAll('.add-tooltip');
+    if(tooltipHosts) {
+      tooltipHosts.forEach((tooltipHost)=> {
+        tooltipHost.addEventListener('mouseenter', showTooltip);
+        tooltipHost.addEventListener('mouseleave', hideTooltip);
+        return tooltipHost;
       })
     }
     
 
     return function cleanup() {
-      tooltips.forEach((tooltip)=> {
-        tooltip.removeEventListener('mouseenter', showTooltip);
-        tooltip.removeEventListener('mouseleave', hideTooltip);
-        return tooltip;
+      tooltipHosts.forEach((tooltipHost)=> {
+        tooltipHost.removeEventListener('mouseenter', showTooltip);
+        tooltipHost.removeEventListener('mouseleave', hideTooltip);
+        return tooltipHost;
       })
     }
   })
