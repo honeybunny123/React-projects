@@ -1,23 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 
-const UserData = ()=> {
-  
-  const [data, setData] = useState(null);
-  
-  useEffect(()=> fetchData())    
+const UserData = (props)=> {
 
-  const fetchData = async()=> {
-    fetch('https://jsonplaceholder.typicode.com/users')
-      .then(res => {
-        if(res.OK)
-          res.json() //converting to json
-      }) 
-      .then(data => setData(data))
-  }  
-
-  const userData = data ? data.map(user => {
+  const userData = props.data ? props.data.map(user => {
     return (
-      <tr>
+      <tr key={user.id}>
         <td>{user.id}</td>
         <td>{user.name}</td>
         <td>{user.email}</td>
