@@ -1,12 +1,14 @@
+* {
+	box-sizing: border-box;
+}
 
-
-div {
+.dropdown {
 	 width: 300px;
 	 position: relative;
    margin: 50px auto;
 }
- ul {
-	 padding: 0;
+ .dropmenu {
+	 padding: 12px 0;
 	 margin-top: 3px;
 	 box-shadow: 1px 1px 8px grey;
 	 border-radius: 3px;
@@ -16,11 +18,22 @@ div {
 	 width: 100%;
 	 display: none;
 }
+
+ul {
+	padding: 0;
+	margin: 0;
+	max-height: 300px;
+	overflow: auto;
+}
  li {
 	 list-style: none;
-	 padding: 8px 15px;
+	 padding: 8px 24px;
 	 cursor: pointer;
 	 transition: 0.1s;
+	 font-size: 16px;
+	 white-space: nowrap;
+	 overflow: hidden;
+	 text-overflow: ellipsis;
 }
  li:hover {
 	 background: gainsboro;
@@ -53,6 +66,9 @@ div {
 .dropbtn-text {
   width: 85%;
   display: inline-block;
+	white-space: nowrap;
+	 overflow: hidden;
+	 text-overflow: ellipsis;
 }
 
 .dropdown.open .dropmenu {
@@ -62,5 +78,15 @@ div {
 .dropdown.open button::after {
 	 transform: rotate(225deg);
 }
- 
+
+.dropdown-search {
+	width: 270px;
+	padding: 8px 12px;
+	border-radius: 15px;
+	margin: 0 12px 12px;
+	border: 1px solid grey;
+	font-size: 14px;
+}
+ 	
+	
   
