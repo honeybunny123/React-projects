@@ -8,7 +8,11 @@ const Dropdown = (props)=> {
     const dropdownMenu = document.querySelector('.dropdown-menu');
     const dropdownOptions = dropdownMenu.querySelectorAll('li');
     
-      document.addEventListener('click', ()=> dropdownMenu.style.display = 'none');
+      document.addEventListener('click', e=> {
+        if(!e.target.classList.contains('dropdown-btn'))
+          dropdownMenu.style.display = 'none';
+      })
+      
 
     function openDropdown() {
       dropdownMenu.style.display = 'block';
