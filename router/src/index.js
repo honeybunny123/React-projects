@@ -11,6 +11,9 @@ import Industries from './components/industries/industries';
 import Legal from './components/industries/legal';
 import Finance from './components/industries/finance';
 import Healthcare from './components/industries/healthcare';
+import Page404 from './components/Page404';
+import InvoiceLink from './components/invoice/InvoiceLink';
+import Invoice from './components/invoice/Invoice';
 
 ReactDOM.render(
   <BrowserRouter>    
@@ -23,6 +26,13 @@ ReactDOM.render(
         <Route path="/industries/legal" element={<Legal/>}/>
         <Route path="/industries/finance" element={<Finance/>}/> 
         <Route path="/industries/healthcare" element={<Healthcare/>}/> 
+
+        <Route path="/invoices" element={<InvoiceLink/>}>
+          <Route path=":invoiceId" element={<Invoice/>}/> 
+        </Route>
+
+        {/* No match Route */}
+        <Route path="*" element={<Page404/>}/> 
       </Route>      
     </Routes>    
   </BrowserRouter>,
