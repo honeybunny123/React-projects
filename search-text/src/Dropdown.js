@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
-import DropdownOptions from './DropdownOptions'
+import DropdownMenu from './DropdownMenu'
 
 const Dropdown = ()=> {
 
@@ -33,9 +33,6 @@ const Dropdown = ()=> {
 
       document.addEventListener('click', dropdownClose);
 
-      
-
-
       return () => {
         dropdownBtn.forEach(dropBtn => dropBtn.removeEventListener('click', dropdownToggle));
         dropdownOptions.forEach(dropdownOption => dropdownOption.removeEventListener('click', selectDropdownOption));
@@ -49,10 +46,7 @@ const Dropdown = ()=> {
       <button className="dropbtn">
         <span className="dropbtn-text">Select a value</span>
       </button>
-      <div className="dropmenu">
-        <input className="dropdown-search" placeholder="Search in Dropdown"/>
-        <DropdownOptions dropdownData={dropdownData} setDropdownData={setDropdownData}/>     
-      </div>       
+      <DropdownMenu dropdownData={dropdownData} setDropdownData={setDropdownData}/>     
 	  </div>
   );
 }
