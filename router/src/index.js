@@ -26,10 +26,10 @@ ReactDOM.render(
         <Route path="/industries/legal" element={<Legal/>}/>
         <Route path="/industries/finance" element={<Finance/>}/> 
         <Route path="/industries/healthcare" element={<Healthcare/>}/> 
-
-        <Route path="/invoices" element={<InvoiceLink/>}>
-          <Route path=":invoiceId" element={<Invoice/>}/> 
-        </Route>
+        
+        <Route path="/invoices" element={<InvoiceLink/>}/>
+        <Route path="/invoices/:invoiceId" element={<Invoice/>}/> 
+        
 
         {/* No match Route */}
         <Route path="*" element={<Page404/>}/> 

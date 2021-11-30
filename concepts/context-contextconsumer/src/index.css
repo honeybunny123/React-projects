@@ -12,7 +12,31 @@ code {
     monospace;
 }
 
-.input-group {
-  width: 350px;
-  
+
+body {
+  padding: 30px;
+  text-align: center;
 }
+
+header, main {
+  padding: 40px;
+  border-radius: 5px;
+}
+
+header {
+  margin-bottom: 40px;
+}
+
+main {
+  height: 300px;
+}
+
+h1 {
+  font-size: 40px;
+}
+
+p {
+  font-size: 18px;
+}
+
+

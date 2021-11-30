@@ -39,3 +39,7 @@ export default function invoiceData() {
 export function getInvoiceByNum(num) {
   return invoices.find(val => val.number === num);
 }
+
+export function deleteInvoice (id) {
+  invoices.filter(invoice => invoice.number !== id);
+}
