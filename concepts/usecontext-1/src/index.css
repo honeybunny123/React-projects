@@ -53,3 +53,7 @@ button {
   width: 100px;
   background-color: yellowgreen;
 }
+
+h2 {
+  margin: 0;
+}
