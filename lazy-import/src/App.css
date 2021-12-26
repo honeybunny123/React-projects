@@ -1,0 +1,20 @@
+.App {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding-top: 50px;
+}
+
+.user-table {
+  border-collapse: collapse;
+
+}
+
+td, th {
+  padding: 10px;
+}
+
+td {
+  text-align: left;
+}
