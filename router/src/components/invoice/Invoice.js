@@ -6,7 +6,6 @@ import {getInvoiceByNum, deleteInvoice} from './invoiceData';
 export default function Invoice() {
   let params = useParams();
   let invoice = getInvoiceByNum(Number(params.invoiceId));
-  console.log(invoice);
   let navigate = useNavigate();
   
   return (

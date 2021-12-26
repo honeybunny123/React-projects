@@ -1,5 +1,5 @@
 import invoiceData from "./invoiceData";
-import {Link, useSearchParams, useLocation} from 'react-router-dom';
+import {Link, useSearchParams} from 'react-router-dom';
 import {useState, useRef, useEffect} from 'react';
 
 const InvoiceLink = ()=> {
@@ -7,21 +7,22 @@ const InvoiceLink = ()=> {
   const [invoiceList, updateInvoiceList ] = useState(invoices);
   const searchInput = useRef(null);
   const [searchParams, setSearchParams] = useSearchParams();  
-  let location = useLocation(); 
-  console.log(location);
 
-   useEffect (()=> renderInvoiceList( searchParams.get('searchVal')),[searchParams]);
+   useEffect (()=> {
+     let searchVal = searchParams.get('searchVal');
+     if(searchVal) {
+      renderInvoiceList(searchVal)
+     }    
+    },[searchParams]);
 
   const renderInvoiceList = (searchVal, type='render')=> {    
-    
-    if(searchVal){
+    let price = 2000;
       if(type==='search') {
-        setSearchParams({searchVal});
+        setSearchParams({searchVal, price });
       }      
       let regEx = new RegExp(searchVal, 'i');
       let match = invoices.filter(invoice => invoice.name.match(regEx));
-      updateInvoiceList(match);      
-    }    
+      updateInvoiceList(match);       
   }
 
   const clearInput = ()=> {
@@ -42,7 +43,7 @@ const InvoiceLink = ()=> {
       <div className="d-flex justify-content-around">
         {invoiceList.map(invoice => (
           
-        <Link to={`/invoices/${invoice.number}${location.search}`} key={invoice.number} invoice={invoice}>{invoice.name}</Link> 
+        <Link to={`/invoices/${invoice.number}`} key={invoice.number} invoice={invoice}>{invoice.name} </Link> 
       ))}
       </div>
     </>
