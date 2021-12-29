@@ -8,7 +8,7 @@ import {CountContext} from '../App'
   
   return (
     <div className="child4">
-      <h2>{count}</h2>
+      {/* <h2>{count}</h2> */}
     </div>
   )
 }
