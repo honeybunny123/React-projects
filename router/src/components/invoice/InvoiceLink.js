@@ -13,7 +13,7 @@ const InvoiceLink = ()=> {
      if(searchVal) {
       renderInvoiceList(searchVal)
      }    
-    },[searchParams]);
+    },[]);
 
   const renderInvoiceList = (searchVal, type='render')=> {    
     let price = 2000;

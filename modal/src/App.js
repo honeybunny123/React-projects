@@ -1,4 +1,5 @@
 import React from "react";
+import ReactDOM from "react-dom";
 import "./App.css";
 import LoginModal from "./loginModal";
 import SignupModal from "./signupModal";
@@ -27,6 +28,8 @@ export default class App extends React.Component {
   }
 
   render() {
+    const modalRoot = document.querySelector('#modal-root');
+
     return (
       <div className="App">
         <div>
@@ -36,9 +39,12 @@ export default class App extends React.Component {
         <div>
           <button className="btn-primary" onClick={this.handleSignupModal}>
           Signup</button>
-        </div>
-         <LoginModal handleLoginModal={this.handleLoginModal} isRender={this.state.loginModal}/>
-         <SignupModal handleSignupModal={this.handleSignupModal} isRender={this.state.signupModal}/>
+        </div> 
+        {this.state.loginModal &&
+            ReactDOM.createPortal(<LoginModal handleLoginModal={this.handleLoginModal} />, modalRoot)}
+            
+          {this.state.signupModal &&
+            <SignupModal handleSignupModal={this.handleSignupModal} />}
       </div>
     );
   }

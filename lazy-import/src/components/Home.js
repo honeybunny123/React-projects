@@ -1,7 +1,7 @@
-import React,{Suspense } from "react";
+import React,{Suspense, lazy } from "react";
 import Loader from './Loader';
 
-const UserList = React.lazy(()=> import("./Userlist"));
+const UserList = lazy(()=> import("./Userlist"));
 
 export default function Home() {
   return (
